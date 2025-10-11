@@ -1,0 +1,117 @@
+body {
+  font-family: "Vazirmatn", sans-serif;
+  direction: rtl;
+  background: #f5f7fb;
+  padding: 20px;
+}
+
+.app {
+  max-width: 650px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+h2 {
+  text-align: center;
+  color: #1a237e;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #444;
+}
+
+input[type="number"], input[type="text"], select {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button {
+  background: #2b76ff;
+  color: #fff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #1f5ce6;
+}
+
+button#clear {
+  background: #d9534f;
+}
+
+button#clear:hover {
+  background: #c9302c;
+}
+
+.list {
+  margin-top: 10px;
+}
+
+.member-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.member-row button {
+  background: #ff5252;
+  padding: 6px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+  font-size: 16px;
+  text-align: center;
+}
