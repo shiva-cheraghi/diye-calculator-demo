@@ -1,75 +1,91 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>محاسبه دیات پزشکی‌قانونی</title>
+  <title>محاسبه دیات — پزشکی قانونی</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="app">
-    <h2>محاسبه دیات — پزشکی‌قانونی</h2>
+    <h2> محاسبه دیات — پزشکی‌قانونی</h2>
 
-    <div class="row">
+    <div class="row top-input">
       <label>قیمت هر ۱٪ (تومان):
         <input id="perPercentForensic" type="number" value="16000000">
       </label>
     </div>
 
-    <!-- بخش انتخاب اعضا -->
-    <div class="card">
-      <h3>موارد پزشکی‌قانونی</h3>
+    <div class="card fade-in">
+      <h3>🩺 موارد پزشکی‌قانونی</h3>
+      <div class="form-grid">
+        <label>عضو:
+          <select id="member">
+            <option value="">انتخاب کنید</option>
+            <option value="چشم">چشم</option>
+            <option value="ابرو">ابرو</option>
+            <option value="بینی">بینی</option>
+            <option value="گوش">گوش</option>
+            <option value="لب">لب</option>
+            <option value="زبان">زبان</option>
+            <option value="دندان">دندان</option>
+            <option value="گردن">گردن</option>
+            <option value="فک">فک</option>
+            <option value="شکستگی دست">شکستگی دست</option>
+            <option value="شکستگی پا">شکستگی پا</option>
+            <option value="خردشدگی دست">خردشدگی دست</option>
+            <option value="خردشدگی پا">خردشدگی پا</option>
+            <option value="قطع دست و پا">قطع دست و پا</option>
+            <option value="مهره‌های ستون فقرات">مهره‌های ستون فقرات</option>
+            <option value="نخاع">نخاع</option>
+            <option value="کپل">کپل</option>
+            <option value="دنبالچه">دنبالچه</option>
+            <option value="ترقوه">ترقوه</option>
+            <option value="دنده">دنده</option>
+            <option value="جراحات در سر و صورت">جراحات در سر و صورت</option>
+            <option value="جراحات در بدن">جراحات در بدن</option>
+            <option value="تغییر رنگ پوست">تغییر رنگ پوست</option>
+            <option value="جنین">جنین</option>
+            <option value="آلت تناسلی و بیضه">آلت تناسلی و بیضه</option>
+            <option value="پستان">پستان</option>
+            <option value="دیه منافع">دیه منافع</option>
+          </select>
+        </label>
 
-      <label>عضو:
-        <select id="member">
-          <option value="">انتخاب کنید</option>
-          <option value="چشم">چشم</option>
-          <option value="ابرو">ابرو</option>
-          <option value="بینی">بینی</option>
-        </select>
-      </label>
+        <label>نوع آسیب:
+          <select id="subMember">
+            <option value="">ابتدا عضو را انتخاب کنید</option>
+          </select>
+        </label>
 
-      <label>نوع آسیب:
-        <select id="subMember">
-          <option value="">ابتدا عضو را انتخاب کنید</option>
-        </select>
-      </label>
+        <label>تعداد:
+          <input class="count" type="number" value="1" min="1">
+        </label>
 
-      <label>تعداد: 
-        <input class="count" type="number" value="1" min="1">
-      </label>
-
-      <button id="add">افزودن</button>
+        <button id="add" class="primary">➕ افزودن</button>
+      </div>
       <div class="list" id="membersForensic"></div>
     </div>
 
-    <!-- بخش ارش -->
-    <div class="card">
-      <h3>موارد ارش</h3>
-
-      <label>شرح آسیب:
-        <input id="arshTitle" type="text" placeholder="مثلاً: جراحت خاص یا مورد ویژه">
-      </label>
-
-      <label>درصد ارش (%):
-        <input id="arshPercent" type="number" step="0.01" placeholder="مثلاً 1.5">
-      </label>
-
-      <label>یا مبلغ مستقیم (تومان):
-        <input id="arshAmount" type="number" placeholder="مثلاً 5000000">
-      </label>
-
-      <button id="addArsh">افزودن ارش</button>
+    <div class="card fade-in">
+      <h3>⚖️ موارد ارش</h3>
+      <div class="form-grid">
+        <label>شرح آسیب:
+          <input id="arshTitle" type="text" placeholder="مثلاً: جراحت خاص یا مورد ویژه">
+        </label>
+        <label>درصد ارش (%):
+          <input id="arshPercent" type="number" step="0.01" placeholder="مثلاً 1.5">
+        </label>
+        <button id="addArsh" class="primary">➕ افزودن ارش</button>
+      </div>
       <div class="list" id="arshList"></div>
     </div>
 
-    <!-- دکمه‌ها -->
-    <div class="row">
-      <button id="calc">محاسبه نهایی</button>
-      <button id="clear">پاک کردن همه</button>
+    <div class="row actions">
+      <button id="calc" class="success">📊 محاسبه نهایی</button>
+      <button id="clear" class="danger">🗑️ پاک کردن همه</button>
     </div>
 
-    <!-- نتیجه نهایی -->
-    <div id="result" class="result"></div>
+    <div id="result" class="result fade-in"></div>
   </div>
 
   <script src="script.js"></script>
