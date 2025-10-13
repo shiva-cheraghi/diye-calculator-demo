@@ -1,117 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&display=swap');
+
 body {
   font-family: "Vazirmatn", sans-serif;
   direction: rtl;
-  background: #f5f7fb;
-  padding: 20px;
+  background: linear-gradient(135deg, #eef3ff, #f8fbff);
+  padding: 30px;
+  margin: 0;
+  color: #333;
 }
 
 .app {
-  max-width: 650px;
+  max-width: 750px;
   margin: 0 auto;
   background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  padding: 25px 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  animation: fadeIn 0.8s ease;
 }
 
 h2 {
   text-align: center;
-  color: #1a237e;
-  margin-bottom: 20px;
+  color: #1e40af;
+  margin-bottom: 25px;
+  font-size: 24px;
 }
 
 .card {
-  background: #fafafa;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  padding: 15px;
-  margin-top: 15px;
+  background: #fafcff;
+  border: 1px solid #e3e8f1;
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
 .card h3 {
   margin-top: 0;
-  color: #333;
-  font-size: 16px;
+  color: #1a237e;
+  font-size: 17px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 6px;
 }
 
-.row {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
 }
 
 label {
-  flex: 1;
   display: flex;
-  align-items: center;
-  gap: 6px;
+  flex-direction: column;
   font-size: 14px;
   color: #444;
 }
 
-input[type="number"], input[type="text"], select {
-  flex: 1;
-  padding: 6px 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+input, select {
+  padding: 8px 10px;
+  border: 1px solid #cdd4e0;
+  border-radius: 8px;
   font-size: 14px;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+  outline: none;
 }
 
 button {
-  background: #2b76ff;
-  color: #fff;
-  padding: 8px 14px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 16px;
+  transition: all 0.25s ease;
 }
 
-button:hover {
-  background: #1f5ce6;
+button.primary {
+  background: #2563eb;
+  color: #fff;
 }
 
-button#clear {
-  background: #d9534f;
+button.primary:hover {
+  background: #1d4ed8;
 }
 
-button#clear:hover {
-  background: #c9302c;
+button.success {
+  background: #16a34a;
+  color: white;
 }
 
-.list {
-  margin-top: 10px;
+button.success:hover {
+  background: #15803d;
+}
+
+button.danger {
+  background: #dc2626;
+  color: white;
+}
+
+button.danger:hover {
+  background: #b91c1c;
 }
 
 .member-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 8px;
-  border-radius: 6px;
-  margin-bottom: 6px;
+  background: #f9fbff;
+  border: 1px solid #e0e7ff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 6px;
   font-size: 14px;
+  transition: 0.2s;
+}
+
+.member-row:hover {
+  background: #eef3ff;
 }
 
 .member-row button {
-  background: #ff5252;
-  padding: 6px 8px;
+  background: #ef4444;
+  color: white;
   font-size: 12px;
-  border-radius: 4px;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.member-row button:hover {
+  background: #dc2626;
 }
 
 .result {
-  margin-top: 20px;
-  padding: 12px;
-  border-radius: 10px;
-  background: #e3f2fd;
-  border: 1px solid #90caf9;
+  margin-top: 25px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
   font-size: 16px;
   text-align: center;
+  line-height: 1.8;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: fadeIn 0.7s ease; }
+
+@media (max-width: 600px) {
+  .app { padding: 18px; }
+  button { width: 100%; }
 }
