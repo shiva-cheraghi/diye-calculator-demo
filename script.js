@@ -1,150 +1,312 @@
+// داده‌ها همان‌طور که در کد اصلی هستند:
 const data = {
+  
   "چشم": {
     "از بین رفتن هر چشم سالم": 50,
     "چشمی که سیاهی آن لکه سفیدی باشد و مانع دیدن باشد": 50,
     "از بین رفتن چشم سالم در صورتی که چشم دیگر نابینا مادرزاد باشد": 100,
     "از بین رفتن چشم نابینا": 16.66
   },
-  "ابروو": {
-    "از بین رفتن هر ابرو": 25
-  },
-  "بینی": {
+  "ابرو": { "از بین رفتن هر ابرو": 25 },
+   "بینی": {
     "قطع یا از بین بردن تمام نرمه بینی": 100,
     "شکستن مطلوب بینی": 10,
     "از بین رفتن هر یک از پره‌های بینی": 33.33,
     "فلج شدن بینی": 66.66,
-    "از بین بردن نوک بینی (محل چکیدن خون)": 50,
-    "پاره کردن بینی (در صورتی که سبب از بین رفتن بینی یا نوک آن شود)": 33.33
-  }
-};
+    "از بین بردن نوک بینی که محل چکیدن خون است": 50,
+    "سوراخ شدن کلی بینی در صورتی که مطلوب التیام یابد": 20,
+    "سوراخ شدن کلی بینی در صورتی که معیوب التیام یابد": 33.33,
+    "سوراخ شدن جزئی بینی در صورتی که مطلوب التیام یابد": 10,
+    "سوراخ شدن جزئی بینی در صورتی که معیوب التیام یابد": 33.33,
+    "سوراخ شدن نرمه بینی در صورتی که مطلوب التیام یابد": 5,
+    "سوراخ شدن نرمه بینی در صورتی که معیوب التیام یابد": 11.11,
+  },
+  "گوش": {
+    "از بین بردن دو لاله گوش": 100,
+    "از بین بردن نرمه هر گوش": 16.66,
+    "پاره شدن لاله یک گوش": 16.66,
+    "پاره شدن نرمه یک گوش": 11.11,
+    "فلج کردن لاله هر گوش": 66.66,
+    "بریدن لاله گوش فلج شده": 33.33
+  },
+  "لب": {
+    "از بین رفتن هر یک از لب‌ها": 50,
+    "سست و فلج شدن لب": 66.66,
+    "شکافتن هر دو لب که باعث نمایان شدن دندان‌ها شود": 33.33,
+    "شکافتن هر دو لب با بهبودی بدون عیب": 20,
+    "شکافتن یک لب با عیب": 16.66,
+    "شکافتن یک لب با بهبودی بدون عیب": 10
+  },
+  "زبان": {
+    "از بین رفتن گویایی": 100,
+    "از بین رفتن زبان لال": 33.33
+  },
+    "دندان": {
+    "از بین رفتن تمام 28 دندان دائم": 100,
+    "از بین رفتن و ساقط شدن هر دندان جلو در بالا و پایین": 5,
+    "از بین رفتن و ساقط شدن هر دندان عقب در بالا و پایین": 2.5,
+    "سیاه شدن دندان جلو بدون افتادن": 3.33,
+    "سیاه شدن دندان عقب بدون افتادن": 1.66,
+    "ساقط شدن دندان جلو که قبلاً سیاه بوده": 1.67,
+    "ساقط شدن دندان عقب که قبلاً سیاه بوده": 0.83,
+    "ترک خوردن یا لق شدن دندان جلو در حکم از بین رفتن": 5,
+    "ترک خوردن یا لق شدن دندان عقب در حکم از بین رفتن": 2.5,
+    "از بین رفتن دندان شیری": 1
+  },
+  "گردن": { "شکستگی همراه با کج شدن یا عدم بهبودی": 100 },
 
+  "فک": {
+    "قطع یا از بین رفتن هر دو استخوان چپ و راست فک": 100,
+    "قطع یا از بین رفتن هرکدام از استخوان‌های چپ یا راست فک": 50,
+    "فلج شدن فک پایین": 66.66,
+    "قطع شدن فک فلج": 33.33,
+    "شکستن هر استخوان فک بالا": 10,
+    "شکستن هر استخوان فک پایین": 8
+  },
+
+  "قطع دست و پا": {
+    "قطع دست از مچ": 50,
+    "قطع دست از آرنج": 50,
+    "قطع دست از شانه": 50,
+    "قطع دست فلج": 33.33,
+    "قطع پا از مچ": 50,
+    "قطع پا از کف پا": 50,
+    "قطع پا از زانو": 50,
+    "قطع پا از سر ران": 50,
+    "قطع هر انگشت": 10,
+    "قطع انگشت زائد": 3.33,
+    "قطع هر بند انگشت شست": 5,
+    "قطع هر بند انگشت غیر شست": 3.33
+  },
+ "شکستگی دست": {
+    "شکستگی زند علی ساعد بصورت مطلوب": 8,
+    "شکستگی زند علی ساعد بصورت معیوب": 10,
+    "شکستگی زند اسفل ساعد بصورت مطلوب": 8,
+    "شکستگی زند اسفل ساعد بصورت معیوب": 8,
+    "شکستگی بازو بصورت مطلوب": 8,
+    "شکستگی بازو بصورت معیوب": 10,
+    "شکستگی بند انگشت شست بصورت مطلوب": 0.8,
+    "شکستگی شست بصورت معیوب": 1,
+    "شکستگی بند انگشت غیر شست بصورت مطلوب": 0.53,
+    "شکستگی بند انگشت غیرشست بصورت معیوب": 0.66
+  },
+  "شکستگی پا": {
+    "شکستگی درشت نی ساق پا بصورت مطلوب": 8,
+    "شکستگی درشت نی ساق پا بصورت معیوب": 10,
+    "شکستگی نازک نی بصورت مطلوب": 8,
+    "شکستگی نازک نی بصورت معیوب": 10,
+    "شکستگی ران بصورت مطلوب": 8,
+    "شکستگی ران بصورت معیوب": 10,
+    "شکستگی بند انگشت شست بصورت مطلوب": 0.8,
+    "شکستگی شست بصورت معیوب": 1,
+    "شکستگی بند انگشت غیر شست بصورت مطلوب": 0.53,
+    "شکستگی بند انگشت غیرشست بصورت معیوب": 0.66,
+    "شکستگی قوزک داخلی یا خارجی بصورت مطلوب": 8,
+    "شکستگی قوزک داخلی یا خارجی بصورت معیوب": 10
+  },
+  "خردشدگی دست": {
+    "خرد شدگی زند علی ساعد بصورت مطلوب": 13.33,
+    "خرد شدگی زند علی ساعد بصورت معیوب": 16.66,
+    "خرد شدگی زند اسفل ساعد بصورت مطلوب": 13.33,
+    "خرد شدگی زند اسفل ساعد بصورت معیوب": 16.66,
+    "خرد شدگی بازو بصورت مطلوب": 13.33,
+    "خرد شدگی بازو بصورت معیوب": 16.66,
+    "خرد شدگی بند انگشت شست بصورت مطلوب": 1.33,
+    "خرد شدگی شست بصورت معیوب": 1.66,
+    "خرد شدگی بند انگشت غیر شست بصورت مطلوب": 0.88,
+    "خرد شدگی بند انگشت غیرشست بصورت معیوب": 1.11
+  },
+  "خردشدگی پا": {
+    "خرد شدگی درشت نی ساق پا بصورت مطلوب": 13.33,
+    "خرد شدگی درشت نی ساق پا بصورت معیوب": 16.66,
+    "خرد شدگی نازک نی بصورت مطلوب": 13.33,
+    "خرد شدگی نازک نی بصورت معیوب": 16.66,
+    "خرد شدگی ران بصورت مطلوب": 13.33,
+    "خرد شدگی ران بصورت معیوب": 16.66,
+    "خرد شدگی بند انگشت شست بصورت مطلوب": 1.33,
+    "خرد شدگی شست بصورت معیوب": 1.66,
+    "خرد شدگی بند انگشت غیر شست بصورت مطلوب": 0.88,
+    "خرد شدگی بند انگشت غیرشست بصورت معیوب": 1.11,
+    "خرد شدگی قوزک داخلی یا خارجی بصورت مطلوب": 13.33,
+    "خرد شدگی قوزک داخلی یا خارجی بصورت معیوب": 16.66
+  },
+  "مهره‌های ستون فقرات": {
+    "شکستگی مهره‌ها بدون درمان و از بین رفتن منافع": 100,
+    "شکستگی هر مهره ستون فقرات": 10,
+    "شکستگی موجب خمیدگی و عدم بهبود": 100,
+    "شکستگی موجب خمیدگی و بهبود یافته": 10
+  },
+  "نخاع":{
+    "قطع کامل نخاع":100,
+  },
+  "کپل":{
+    "از بین رفتن دو کپل به نحوی که به استخوان برسد": 100,
+    "از بین رفتن هر کدام از کپل ها به نحوی که به استخوان برسد": 50,
+  },
+  "دنبالچه":{
+    "عدم توانایی ضبط مدفوع": 100,
+    "عدم توانایی ضبط ادرار": 100,
+  },
+  "ترقوه":{
+    "قطع و از بین رفتن هر ترقوه": 50,
+    "شکستگی ترقوه بصورت مطلوب ": 4,
+    "شکستگی ترقوه بصورت معیوب": 50,
+    "ترک خوردن هر ترقوه": 3.2,
+    "در رفتگی هر ترقوه": 2,
+    "سوراخ شدن هر ترقوه":1,
+    "موضحه هر ترقوه": 2.5,
+  },
+  "دنده":{
+    "شکستن دنده محیط به قلب": 2.5,
+    "شکستن دنده غیر محیط به قلب": 1,
+    "در رفتگی دنده محیط به قلب": 0.75,
+    "و در رفتگی دنده غیر محیط به قلب": 0.5,
+    "ترک خوردن دنده محیط به قلب": 1.25,
+    "ترک خوردن دنده غیر محیط به قلب": 0.7,
+    "موضحه دنده محیط به قلب": 0.625,
+    "موضحه دنده غیر محیط به قلب": 0.25,
+  },
+  "جراحات در سر و صورت": {
+    "حارصه": 1,
+    "دامیه": 2,
+    "متلاحمه": 3,
+    "سمحاق": 4,
+    "موضحه": 5,
+    "هاشمه": 10,
+    "منقله": 15,
+    "مامومه": 33.33
+  },
+
+  "جراحات در بدن": {
+    "حارصه": 0.5,
+    "دامیه": 1,
+    "متلاحمه": 2,
+    "سمحاق": 3,
+    "موضحه": 4,
+    "حارصه بند انگشت غیر شست": 0.033,
+    "دامیه بند انگشت غیر شست": 0.066,
+    "متلاحمه بند انگشت غیر شست": 0.1,
+    "سمحاق بند انگشت غیر شست": 0.133,
+    "موضحه بند انگشت غیر شست": 0.166,
+    "حارصه بند انگشت شست": 0.05,
+    "دامیه بند انگشت شست": 0.1,
+    "متلاحمه بند انگشت شست": 0.15,
+    "سمحاق بند انگشت شست": 0.2,
+    "موضحه بند انگشت شست": 0.25
+  },
+
+  "تغییر رنگ پوست": {
+    "سیاه شدگی در صورت": 0.6,
+    "کبودی در صورت": 0.3,
+    "قرمزی در صورت": 0.15,
+    "کبودی در بدن": 0.3,
+    "سیاه شدگی در بدن": 0.15,
+    "قرمزی در بدن": 0.075
+  },
+
+  "جنین": {
+    "نطفه": 2,
+    "علقه": 4,
+    "مضغمه": 6,
+    "عظام": 8,
+    "جنین بدون دمیدن روح": 10,
+    "جنینی که روح در آن دمیده شده": 100
+  },
+
+  "آلت تناسلی و بیضه": {
+    "از بین رفتن اندام تناسلی": 100,
+    "فلج شدن اندام تناسلی": 66.66,
+    "قطع اندام تناسلی فلج": 33.33,
+    "قطع دو بیضه": 100,
+    "قطع بیضه چپ": 66.66,
+    "قطع بیضه راست": 33.33
+  },
+
+  "پستان": {
+    "قطع و از بین رفتن هر پستان": 50
+  },
+
+  "دیه منافع": {
+    "زائل شدن عقل": 100,
+    "از بین بردن شنوایی در هر گوش": 50,
+    "از بین رفتن بینایی هر چشم": 50,
+    "از بین بردن کامل بویایی": 100,
+    "از بین رفتن صوت": 100
+  }
+ };
+
+// عناصر
 const perPercentEl = document.getElementById("perPercentForensic");
 const memberEl = document.getElementById("member");
 const subMemberEl = document.getElementById("subMember");
 const listEl = document.getElementById("membersForensic");
-const arshListEl = document.getElementById("arshList");
 
-// تغییر لیست دوم بر اساس عضو انتخاب‌شده
+// پرکردن زیرمنو
 memberEl.addEventListener("change", () => {
   const member = memberEl.value;
   subMemberEl.innerHTML = "<option value=''>انتخاب کنید</option>";
-  if (!member || !data[member]) return;
-  Object.keys(data[member]).forEach(sub => {
-    const opt = document.createElement("option");
-    opt.value = sub;
-    opt.text = sub;
-    subMemberEl.appendChild(opt);
-  });
+  if (member && data[member]) {
+    Object.keys(data[member]).forEach(sub => {
+      const opt = document.createElement("option");
+      opt.value = sub;
+      opt.textContent = sub;
+      subMemberEl.appendChild(opt);
+    });
+  }
 });
 
-// افزودن مورد دیه پزشکی قانونی
+// افزودن مورد
 document.getElementById("add").addEventListener("click", () => {
   const member = memberEl.value;
   const sub = subMemberEl.value;
-  const count = parseInt(document.querySelector(".count").value) || 1;
-  if (!member || !sub) {
-    alert("لطفاً عضو و نوع آسیب را انتخاب کنید");
-    return;
-  }
+  const count = parseFloat(document.querySelector(".count").value) || 1;
+  if (!member || !sub) return alert("عضو و نوع آسیب را انتخاب کنید");
 
   const pct = data[member][sub];
   const row = document.createElement("div");
-  row.className = "member-row";
+  row.className = "member-row fade-in";
   row.dataset.percent = pct;
   row.dataset.count = count;
-  row.innerHTML = `
-    <div><strong>${member}</strong> — ${sub}<br>
-    تعداد: ${count} — درصد: ${pct}%</div>
-    <div><button class="remove">حذف</button></div>
-  `;
+  row.innerHTML = `<div><strong>${member}</strong> — ${sub}<br>تعداد: ${count} — درصد: ${pct}%</div>
+                   <button class="remove">حذف</button>`;
   row.querySelector(".remove").addEventListener("click", () => row.remove());
   listEl.appendChild(row);
 });
 
-// افزودن ارش دستی (با منطق جدید)
+// افزودن ارش
 document.getElementById("addArsh").addEventListener("click", () => {
   const title = document.getElementById("arshTitle").value.trim();
-  const percent = parseFloat(document.getElementById("arshPercent").value) || 0;
-  const amount = parseFloat(document.getElementById("arshAmount").value) || 0;
-
-  if (!title) {
-    alert("شرح ارش را وارد کنید");
-    return;
-  }
+  const percent = parseFloat(document.getElementById("arshPercent").value);
+  if (!title || isNaN(percent)) return alert("شرح و درصد ارش را وارد کنید");
 
   const row = document.createElement("div");
-  row.className = "member-row";
+  row.className = "member-row fade-in";
   row.dataset.percent = percent;
-  // اگر درصد وارد شده باشد، مبلغ مستقیم در نظر گرفته نمی‌شود
-  row.dataset.amount = percent > 0 ? 0 : amount;
-
-  let infoText = `<strong>ارش:</strong> ${title}<br>`;
-  if (percent > 0) {
-    infoText += `درصد: ${percent}%`;
-  } else if (amount > 0) {
-    infoText += `مبلغ مستقیم: ${amount.toLocaleString()} تومان`;
-  } else {
-    infoText += `<span style="color:red;">هیچ مقداری وارد نشده است</span>`;
-  }
-
-  row.innerHTML = `
-    <div>${infoText}</div>
-    <div><button class="remove">حذف</button></div>
-  `;
-
+  row.innerHTML = `<div><strong>ارش:</strong> ${title} — درصد: ${percent}%</div>
+                   <button class="remove">حذف</button>`;
   row.querySelector(".remove").addEventListener("click", () => row.remove());
-  arshListEl.appendChild(row);
-
-  // پاک کردن ورودی‌ها
-  document.getElementById("arshTitle").value = "";
-  document.getElementById("arshPercent").value = "";
-  document.getElementById("arshAmount").value = "";
+  document.getElementById("arshList").appendChild(row);
 });
 
 // محاسبه نهایی
 document.getElementById("calc").addEventListener("click", () => {
   const per = parseFloat(perPercentEl.value) || 0;
-  const forensicRows = Array.from(listEl.children);
-  const arshRows = Array.from(arshListEl.children);
-
-  if (!forensicRows.length && !arshRows.length) {
-    alert("هیچ موردی اضافه نشده است");
-    return;
-  }
-
+  const forensicRows = [...listEl.children];
+  const arshRows = [...document.getElementById("arshList").children];
   let totalPercent = 0;
-  let totalArshPercent = 0;
-  let totalArshAmount = 0;
 
-  forensicRows.forEach(r => {
-    const pct = parseFloat(r.dataset.percent) || 0;
-    const count = parseFloat(r.dataset.count) || 1;
-    totalPercent += pct * count;
-  });
+  forensicRows.forEach(r => totalPercent += parseFloat(r.dataset.percent) * parseFloat(r.dataset.count));
+  arshRows.forEach(r => totalPercent += parseFloat(r.dataset.percent));
 
-  arshRows.forEach(r => {
-    totalArshPercent += parseFloat(r.dataset.percent) || 0;
-    totalArshAmount += parseFloat(r.dataset.amount) || 0;
-  });
-
-  const finalPercent = totalPercent + totalArshPercent;
-  const calcFromPercent = finalPercent * per;
-  const totalAmount = calcFromPercent + totalArshAmount;
-
-  document.getElementById("result").innerHTML = `
-    <div class="card">
-      <div><strong>درصد کل ارش و دیات:</strong> ${finalPercent.toFixed(2)}%</div>
-      <hr>
-      <div style="font-size:18px; color:#0a58ca;">
-        <strong>مبلغ کل نهایی:</strong> ${totalAmount.toLocaleString()} تومان
-      </div>
-    </div>
-  `;
+  const totalAmount = totalPercent * per;
+  document.getElementById("result").innerHTML =
+    `<div class="card fade-in"><strong>درصد کل:</strong> ${totalPercent.toFixed(2)}%<br>
+     <strong>مبلغ کل:</strong> ${totalAmount.toLocaleString()} تومان</div>`;
 });
 
-// پاک کردن همه موارد
+// پاک کردن
 document.getElementById("clear").addEventListener("click", () => {
   listEl.innerHTML = "";
-  arshListEl.innerHTML = "";
+  document.getElementById("arshList").innerHTML = "";
   document.getElementById("result").innerHTML = "";
 });
