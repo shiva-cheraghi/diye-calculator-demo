@@ -1,28 +1,24 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>محاسبه دیه و ارش پزشکی قانونی</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<link rel="stylesheet" href="style.css">
+
+
   <div class="app">
-    <h2> محاسبه‌گر دیه و ارش — پزشکی قانونی در سال 1404</h2>
+    <h2>محاسبه‌گر دیه و ارش — پزشکی قانونی</h2>
 
     <div class="row top-input">
-      <label>قیمت هر ۱٪ (تومان):
-        <input id="perPercentForensic" type="number" value="16000000">
+      <label>قیمت هر ۱٪ (ریال):
+        <!-- مقدار پیش‌فرض حالا به ریال است (مثلاً 16,000,000 تومان -> 160,000,000 ریال) -->
+        <input id="perPercentForensic" type="number" value="160000000" min="0">
       </label>
     </div>
 
     <div class="card fade-in">
-      <h3>🩺 موارد پزشکی‌قانونی</h3>
+      <h3>موارد پزشکی‌قانونی</h3>
       <div class="form-grid">
         <label>عضو:
           <select id="member">
             <option value="">انتخاب کنید</option>
             <option value="چشم">چشم</option>
-            <option value="ابرو">ابرو</option>
+            <option value="مو">مو</option>
             <option value="بینی">بینی</option>
             <option value="گوش">گوش</option>
             <option value="لب">لب</option>
@@ -61,13 +57,13 @@
           <input class="count" type="number" value="1" min="1">
         </label>
 
-        <button id="add" class="primary">➕ افزودن</button>
+        <button id="add" class="primary">افزودن</button>
       </div>
       <div class="list" id="membersForensic"></div>
     </div>
 
     <div class="card fade-in">
-      <h3>⚖️ موارد ارش</h3>
+      <h3>موارد ارش</h3>
       <div class="form-grid">
         <label>شرح آسیب:
           <input id="arshTitle" type="text" placeholder="مثلاً: جراحت خاص یا مورد ویژه">
@@ -75,19 +71,17 @@
         <label>درصد ارش (%):
           <input id="arshPercent" type="number" step="0.01" placeholder="مثلاً 1.5">
         </label>
-        <button id="addArsh" class="primary">➕ افزودن ارش</button>
+        <button id="addArsh" class="primary">افزودن ارش</button>
       </div>
       <div class="list" id="arshList"></div>
     </div>
 
     <div class="row actions">
-      <button id="calc" class="success">📊 محاسبه نهایی</button>
-      <button id="clear" class="danger">🗑️ پاک کردن همه</button>
+      <button id="calc" class="success">محاسبه نهایی</button>
+      <button id="clear" class="danger">پاک کردن همه</button>
     </div>
 
     <div id="result" class="result fade-in"></div>
   </div>
 
   <script src="script.js"></script>
-</body>
-</html>
