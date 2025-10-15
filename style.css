@@ -93,27 +93,11 @@ button.primary {
   color: #fff;
 }
 
-button.primary:hover {
-  background: #1d4ed8;
-}
-
-button.success {
-  background: #16a34a;
-  color: white;
-}
-
-button.success:hover {
-  background: #15803d;
-}
-
-button.danger {
-  background: #dc2626;
-  color: white;
-}
-
-button.danger:hover {
-  background: #b91c1c;
-}
+button.primary:hover { background: #1d4ed8; }
+button.success { background: #16a34a; color: white; }
+button.success:hover { background: #15803d; }
+button.danger { background: #dc2626; color: white; }
+button.danger:hover { background: #b91c1c; }
 
 .member-row {
   display: flex;
@@ -125,11 +109,6 @@ button.danger:hover {
   border-radius: 8px;
   margin-top: 6px;
   font-size: 14px;
-  transition: 0.2s;
-}
-
-.member-row:hover {
-  background: #eef3ff;
 }
 
 .member-row button {
@@ -139,10 +118,7 @@ button.danger:hover {
   padding: 6px 8px;
   border-radius: 6px;
 }
-
-.member-row button:hover {
-  background: #dc2626;
-}
+.member-row button:hover { background: #dc2626; }
 
 .result {
   margin-top: 25px;
