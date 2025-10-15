@@ -3,10 +3,7 @@ const data = {
     "از بین رفتن هر چشم سالم": 50,
     "چشمی که سیاهی آن لکه سفیدی باشد و مانع دیدن باشد": 50,
     "از بین رفتن چشم سالم در صورتی که چشم دیگر نابینا مادرزاد باشد": 100,
-    "از بین رفتن چشم نابینا": 16.66,
-    "از بین رفتن مجموع چهار پلک دو چشم":100,
-    "از بین رفتن هر یک از پلک های بالا":16.66,
-    "از بین رفتن هر یک از پلک های پایین":25
+    "از بین رفتن چشم نابینا": 16.66
   },
   "مو": { 
     "از بین رفتن هر ابرو": 25, 
@@ -185,6 +182,7 @@ const data = {
     "متلاحمه": 2,
     "سمحاق": 3,
     "موضحه": 4,
+    "جائفه":33/33,
     "حارصه بند انگشت غیر شست": 0.033,
     "دامیه بند انگشت غیر شست": 0.066,
     "متلاحمه بند انگشت غیر شست": 0.1,
@@ -230,18 +228,18 @@ const data = {
     "از بین بردن کامل بویایی": 100,
     "از بین رفتن صوت": 100
   },
-  "فوت": {
+"فوت": {
   "فوت کامل": 100,
   "مرگ مغزی": 100
   }
 };
-// عناصر صفحه
+// المان‌ها
 const perPercentEl = document.getElementById("perPercentForensic");
 const memberEl = document.getElementById("member");
 const subMemberEl = document.getElementById("subMember");
 const listEl = document.getElementById("membersForensic");
 
-// پر کردن منوی اعضا در شروع
+// پر کردن منوی اعضا
 Object.keys(data).forEach(member => {
   const opt = document.createElement("option");
   opt.value = member;
@@ -263,20 +261,30 @@ memberEl.addEventListener("change", () => {
   }
 });
 
-// افزودن مورد
+// افزودن مورد پزشکی قانونی
 document.getElementById("add").addEventListener("click", () => {
   const member = memberEl.value;
   const sub = subMemberEl.value;
   const count = parseFloat(document.querySelector(".count").value) || 1;
-  if (!member || !sub) return alert("عضو و نوع آسیب را انتخاب کنید");
+  const fraction = parseFloat(document.querySelector(".fraction").value);
 
-  const pct = data[member][sub];
+  if (!member || !sub) return alert("عضو و نوع آسیب را انتخاب کنید");
+  if (isNaN(fraction) || fraction <= 0 || fraction > 1)
+    return alert("نسبت آسیب باید عددی بین 0 و 1 باشد (مثلاً 0.25 برای یک‌چهارم)");
+
+  const basePercent = data[member][sub];
+  const finalPercent = basePercent * fraction;
+
   const row = document.createElement("div");
   row.className = "member-row";
-  row.dataset.percent = pct;
+  row.dataset.percent = finalPercent;
   row.dataset.count = count;
-  row.innerHTML = `<div><strong>${member}</strong> — ${sub}<br>تعداد: ${count} — درصد: ${pct}%</div>
-                   <button class="remove">حذف</button>`;
+
+  row.innerHTML = `
+    <div><strong>${member}</strong> — ${sub}<br>
+    تعداد: ${count} — نسبت آسیب: ${(fraction * 100).toFixed(1)}٪ — درصد مؤثر: ${finalPercent.toFixed(2)}%</div>
+    <button class="remove">حذف</button>
+  `;
   row.querySelector(".remove").addEventListener("click", () => row.remove());
   listEl.appendChild(row);
 });
@@ -320,4 +328,3 @@ document.getElementById("clear").addEventListener("click", () => {
   document.getElementById("arshList").innerHTML = "";
   document.getElementById("result").innerHTML = "";
 });
-
