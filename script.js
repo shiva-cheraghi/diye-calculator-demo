@@ -1,3 +1,4 @@
+
 const data = {
   "چشم": {
     "از بین رفتن هر چشم سالم": 50,
@@ -233,13 +234,24 @@ const data = {
   "مرگ مغزی": 100
   }
 };
+
+// مبنای دیه برای هر سال
+const baseAmounts = {
+  "1400": 48000000,
+  "1401": 60000000,
+  "1402": 90000000,
+  "1403": 120000000,
+  "1404": 160000000
+};
+
 // المان‌ها
 const perPercentEl = document.getElementById("perPercentForensic");
 const memberEl = document.getElementById("member");
 const subMemberEl = document.getElementById("subMember");
 const listEl = document.getElementById("membersForensic");
+const yearSelectEl = document.getElementById("yearSelect");
 
-// پر کردن منوی اعضا
+// پر کردن اعضا
 Object.keys(data).forEach(member => {
   const opt = document.createElement("option");
   opt.value = member;
@@ -247,10 +259,10 @@ Object.keys(data).forEach(member => {
   memberEl.appendChild(opt);
 });
 
-// تغییر زیرلیست
+// تغییر زیرلیست نوع آسیب
 memberEl.addEventListener("change", () => {
-  const member = memberEl.value;
   subMemberEl.innerHTML = "<option value=''>انتخاب کنید</option>";
+  const member = memberEl.value;
   if (member && data[member]) {
     Object.keys(data[member]).forEach(sub => {
       const opt = document.createElement("option");
@@ -261,16 +273,22 @@ memberEl.addEventListener("change", () => {
   }
 });
 
+// تغییر مبنای دیه با سال انتخابی
+yearSelectEl.addEventListener("change", () => {
+  const year = yearSelectEl.value;
+  if (baseAmounts[year]) {
+    perPercentEl.value = baseAmounts[year];
+  }
+});
+
 // افزودن مورد پزشکی قانونی
 document.getElementById("add").addEventListener("click", () => {
   const member = memberEl.value;
   const sub = subMemberEl.value;
   const count = parseFloat(document.querySelector(".count").value) || 1;
   const fraction = parseFloat(document.querySelector(".fraction").value);
-
   if (!member || !sub) return alert("عضو و نوع آسیب را انتخاب کنید");
-  if (isNaN(fraction) || fraction <= 0 || fraction > 1)
-    return alert("نسبت آسیب باید عددی بین 0 و 1 باشد (مثلاً 0.25 برای یک‌چهارم)");
+  if (isNaN(fraction) || fraction <= 0 || fraction > 1) return alert("نسبت آسیب باید بین 0 و 1 باشد");
 
   const basePercent = data[member][sub];
   const finalPercent = basePercent * fraction;
@@ -279,12 +297,10 @@ document.getElementById("add").addEventListener("click", () => {
   row.className = "member-row";
   row.dataset.percent = finalPercent;
   row.dataset.count = count;
-
   row.innerHTML = `
     <div><strong>${member}</strong> — ${sub}<br>
-    تعداد: ${count} — نسبت آسیب: ${(fraction * 100).toFixed(1)}٪ — درصد مؤثر: ${finalPercent.toFixed(2)}%</div>
-    <button class="remove">حذف</button>
-  `;
+    تعداد: ${count} — نسبت آسیب: ${(fraction*100).toFixed(1)}٪ — درصد مؤثر: ${finalPercent.toFixed(2)}%</div>
+    <button class="remove">حذف</button>`;
   row.querySelector(".remove").addEventListener("click", () => row.remove());
   listEl.appendChild(row);
 });
@@ -306,20 +322,29 @@ document.getElementById("addArsh").addEventListener("click", () => {
 
 // محاسبه نهایی
 document.getElementById("calc").addEventListener("click", () => {
-  const per = parseFloat(perPercentEl.value) || 0;
+  const year = yearSelectEl.value;
+  if (!baseAmounts[year]) return alert("لطفاً سال را انتخاب کنید");
+
+  const per = baseAmounts[year]; // مبنای دیه سال انتخاب شده
   const forensicRows = [...listEl.children];
   const arshRows = [...document.getElementById("arshList").children];
   let totalPercent = 0;
 
-  forensicRows.forEach(r => totalPercent += parseFloat(r.dataset.percent) * parseFloat(r.dataset.count));
-  arshRows.forEach(r => totalPercent += parseFloat(r.dataset.percent));
+  forensicRows.forEach(r => {
+    const percent = parseFloat(r.dataset.percent) || 0;
+    const count = parseFloat(r.dataset.count) || 1;
+    totalPercent += percent * count;
+  });
 
-  const totalAmount = totalPercent * per;
+  arshRows.forEach(r => totalPercent += parseFloat(r.dataset.percent) || 0);
+
+  const totalAmount = totalPercent * per / 100;
   const totalAmountFmt = totalAmount.toLocaleString('fa-IR');
 
-  document.getElementById("result").innerHTML =
-    `<div><strong>درصد کل:</strong> ${totalPercent.toFixed(2)}%<br>
-     <strong>مبلغ کل:</strong> ${totalAmountFmt} ریال</div>`;
+  document.getElementById("result").innerHTML = `
+    <div><strong>سال انتخاب شده:</strong> ${year}<br>
+    <strong>درصد کل:</strong> ${totalPercent.toFixed(2)}%<br>
+    <strong>مبلغ کل:</strong> ${totalAmountFmt} ریال</div>`;
 });
 
 // پاک کردن
