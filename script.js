@@ -353,3 +353,7 @@ document.getElementById("clear").addEventListener("click", () => {
   document.getElementById("arshList").innerHTML = "";
   document.getElementById("result").innerHTML = "";
 });
+//پرینت
+document.getElementById("printBtn").addEventListener("click", () => {
+    window.print();
+});
