@@ -9,11 +9,11 @@ body {
   color: #333;
 }
 .logo {
-  width: 80px;        /* اندازه کوچک */
-  position: absolute; /* قرارگیری در گوشه */
-  left: 400px;         /* فاصله از چپ */
-  top: 400px;          /* فاصله از بالا */
-  border-radius: 8px; /* اختیاری */
+  position: fixed;     /* همیشه گوشه ثابت صفحه */
+  top: 30px;           /* پایین‌تر از قبل */
+  left: 30px;          /* یکم فاصله از گوشه چپ */
+  width: 70px;         /* هر سایزی خواستی */
+  z-index: 999;        /* روی همه عناصر قرار بگیرد */
 }
 .app {
   max-width: 750px;
