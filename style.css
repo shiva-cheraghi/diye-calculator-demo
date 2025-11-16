@@ -8,7 +8,13 @@ body {
   margin: 0;
   color: #333;
 }
-
+.logo {
+  width: 80px;        /* اندازه کوچک */
+  position: absolute; /* قرارگیری در گوشه */
+  left: 40px;         /* فاصله از چپ */
+  top: 40px;          /* فاصله از بالا */
+  border-radius: 8px; /* اختیاری */
+}
 .app {
   max-width: 750px;
   margin: 0 auto;
@@ -143,3 +149,4 @@ button.danger:hover { background: #b91c1c; }
   .app { padding: 18px; }
   button { width: 100%; }
 }
+
