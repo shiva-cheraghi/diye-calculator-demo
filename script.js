@@ -347,13 +347,23 @@ document.getElementById("calc").addEventListener("click", () => {
     <strong>مبلغ کل:</strong> ${totalAmountFmt} ریال</div>`;
 });
 
-// پاک کردن
 document.getElementById("clear").addEventListener("click", () => {
+
+  // پاک کردن لیست‌ها
   listEl.innerHTML = "";
   document.getElementById("arshList").innerHTML = "";
   document.getElementById("result").innerHTML = "";
-});
-//پرینت
-document.getElementById("printBtn").addEventListener("click", () => {
-    window.print();
+
+  // پاک کردن مقادیر ورودی ارش
+  document.getElementById("arshTitle").value = "";
+  document.getElementById("arshPercent").value = "";
+
+  // پاک کردن ورودی‌های بخش پزشکی قانونی
+  document.querySelector(".count").value = 1;
+  document.querySelector(".fraction").value = 1;
+
+  // برگرداندن انتخاب‌ها به حالت پیش‌فرض
+  document.getElementById("member").value = "";
+  document.getElementById("subMember").innerHTML =
+    "<option value=''>ابتدا عضو را انتخاب کنید</option>";
 });
