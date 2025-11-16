@@ -13,9 +13,9 @@ body {
 }
 .logo {
   position: absolute;
-  top: -20px;              /* کمی بالاتر از جایی که می‌خواهی */
+  top: 20px;              /* کمی بالاتر از جایی که می‌خواهی */
   left: 50%;               /* وسط container */
-  transform: translateX(-150px); /* حرکت به سمت چپ → مقدار قابل تنظیم */
+  transform: translateX(-110px); /* حرکت به سمت چپ → مقدار قابل تنظیم */
   width: 80px;             /* اندازه لوگو */
   z-index: 1000;
 }
