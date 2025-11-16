@@ -367,3 +367,6 @@ document.getElementById("clear").addEventListener("click", () => {
   document.getElementById("subMember").innerHTML =
     "<option value=''>ابتدا عضو را انتخاب کنید</option>";
 });
+document.getElementById("print").addEventListener("click", () => {
+  window.print();
+});
