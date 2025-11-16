@@ -8,12 +8,16 @@ body {
   margin: 0;
   color: #333;
 }
+.container {
+  position: relative;
+}
 .logo {
-  position: fixed;     /* همیشه گوشه ثابت صفحه */
-  top: 30px;           /* پایین‌تر از قبل */
-  left: 30px;          /* یکم فاصله از گوشه چپ */
-  width: 70px;         /* هر سایزی خواستی */
-  z-index: 999;        /* روی همه عناصر قرار بگیرد */
+  position: absolute;
+  top: -20px;              /* کمی بالاتر از جایی که می‌خواهی */
+  left: 50%;               /* وسط container */
+  transform: translateX(-150px); /* حرکت به سمت چپ → مقدار قابل تنظیم */
+  width: 80px;             /* اندازه لوگو */
+  z-index: 1000;
 }
 .app {
   max-width: 750px;
