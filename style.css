@@ -15,7 +15,7 @@ body {
   position: absolute;
   top: 40px;              /* کمی بالاتر از جایی که می‌خواهی */
   left: 50%;               /* وسط container */
-  transform: translateX(-50px); /* حرکت به سمت چپ → مقدار قابل تنظیم */
+  transform: translateX(100px); /* حرکت به سمت چپ → مقدار قابل تنظیم */
   width: 80px;             /* اندازه لوگو */
   z-index: 1000;
 }
