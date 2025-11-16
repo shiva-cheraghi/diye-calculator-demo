@@ -11,8 +11,8 @@ body {
 .logo {
   width: 80px;        /* اندازه کوچک */
   position: absolute; /* قرارگیری در گوشه */
-  left: 400px;         /* فاصله از چپ */
-  top: 400px;          /* فاصله از بالا */
+  left: 40px;         /* فاصله از چپ */
+  top: 40px;          /* فاصله از بالا */
   border-radius: 8px; /* اختیاری */
 }
 .app {
