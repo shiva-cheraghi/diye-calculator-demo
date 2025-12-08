@@ -338,7 +338,7 @@ document.getElementById("calc").addEventListener("click", () => {
 
   arshRows.forEach(r => totalPercent += parseFloat(r.dataset.percent) || 0);
 
-  const totalAmount = totalPercent * per / 100;
+  const totalAmount = totalPercent * per;
   const totalAmountFmt = totalAmount.toLocaleString('fa-IR');
 
   document.getElementById("result").innerHTML = `
